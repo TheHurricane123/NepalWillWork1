@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee and Employment</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            /* Light gray background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            /* Push items to the left and right */
+            align-items: center;
+            /* Align items vertically */
+            width: 100%;
+            padding: 15px 50px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Header Section */
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            /* Move text closer */
+            transform: scale(1.4);
+        }
+
+        .header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2575fc;
+            margin: 0;
+        }
+
+        /* Main content */
+        .main-content {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 80px;
+            /* Offset for fixed header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Card/Box styling */
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .box {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            /* To position button inside box */
+        }
+
+        .box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .box span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        /* Circular button styling */
+        .circle-btn {
+            width: 30px;
+            /* Smaller size */
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            color: black;
+            border: 2px solid black;
+            /* Black border */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            position: absolute;
+            /* Position button inside box */
+            bottom: 20px;
+            /* Place it at the bottom */
+            left: 20px;
+            /* Align it to the left side of the box */
+        }
+
+        .circle-btn:hover {
+            background: #1b3d74;
+            /* Darker background on hover */
+            color: white;
+        }
+
+        .circle-btn.checked {
+            background: green;
+            /* Green background once checked */
+            color: white;
+            border: 2px solid green;
+        }
+
+        .circle-btn.checked::after {
+            content: '\2713';
+            /* Unicode check mark */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Continue button styling */
+        .continue-btn {
+            padding: 12px 24px;
+            background-color: #2575fc;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .continue-btn:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background-color: #1b3d74;
+        }
+
+        /* Green Border Style */
+        .selected {
+            border: 2px solid green !important;
+        }
+
+        #hyperlink {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" title="NepalWillWork">
+            <p>NepalWillWork</p>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h1>What are you looking for</h1>
+        <div class="container">
+            <div class="box" id="employeeBox">
+                <span>Employee</span>
+                <div class="circle-btn" onclick="selectBox('employeeBox')"></div> <!-- Circular button -->
+            </div>
+            <div class="box" id="employmentBox">
+                <span>Employment</span>
+                <div class="circle-btn" onclick="selectBox('employmentBox')"></div> <!-- Circular button -->
+            </div>
+        </div>
+        <button class="continue-btn" id="continueBtn" disabled onclick="redirectToLogin(event)">
+            <a  id="hyperlink">Continue</a>
+        </button>
+    </div>
+
+    <script>
+        function selectBox(boxId) {
+            // Remove the green border from all boxes first
+            document.querySelectorAll('.box').forEach(function (box) {
+                box.classList.remove('selected');
+            });
+    
+            // Remove the tick mark from all buttons first
+            document.querySelectorAll('.circle-btn').forEach(function (button) {
+                button.classList.remove('checked');
+            });
+    
+            // Add the green border to the selected box
+            document.getElementById(boxId).classList.add('selected');
+    
+            // Add a green tick mark to the clicked button
+            let circleBtn = document.querySelector(`#${boxId} .circle-btn`);
+            circleBtn.classList.add('checked');
+    
+            // Enable the continue button
+            document.getElementById('continueBtn').disabled = false;
+        }
+    
+        function redirectToLogin(event) {
+            // Prevent the default anchor tag behavior (redirecting to login)
+            event.preventDefault();
+    
+            // Check if either box is selected
+            if (document.querySelector('.selected')) {
+                // Check if the Employee box is selected
+                if (document.getElementById('employeeBox').classList.contains('selected')) {
+                    window.location.href = "login.html"; // Redirect to the login page for Employee
+                } else if (document.getElementById('employmentBox').classList.contains('selected')) {
+                    window.location.href = "login2.html"; // Redirect to the login page for Employment
+                }
+            } else {
+                alert("Please select an option before continuing!");
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

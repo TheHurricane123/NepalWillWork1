@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - NepalWillWork</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+       body {
+            margin: 0;
+            height: 200vh;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transform: scale(1.4);
+        }
+
+        .header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2575fc;
+            margin: 0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #28354b;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #161c27;
+            color: white;
+        }
+
+        .nav-links a.active {
+            background-color: #161c27;
+            color: white;
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 8px 30px 8px 10px;
+            border: 1px solid #a7a7a7;
+            border-radius: 5px;
+            width: 250px;
+            outline: none;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding-top: 4px;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .search-bar button img {
+            height: 16px;
+            width: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #2575fc, #6a9fff);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: white;
+            color: #2575fc;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #161c27;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            color: #2575fc;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #2575fc;
+            margin: 15px 0 10px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        
+
+        .footer {
+            background-color: #161c27;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" title="NepalWillWork">
+            <p>NepalWillWork</p>
+        </div>
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>
+                    <img src="https://img.icons8.com/ios-filled/50/000000/search.png" alt="Search">
+                </button>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="aboutus.html" >About Us</a>
+                <a href="#" class="active">Services</a>
+                <a href="contactus.html">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Find Talent, Get Work Done</h1>
+        <p>The ultimate platform connecting businesses with freelancers and professionals in Nepal.</p>
+       
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="hiring.png" alt="Freelancers">
+                <h3>Hire Freelancers</h3>
+                <p>Find top-notch freelancers for your short-term projects.</p>
+            </div>
+            <div class="service-card">
+                <img src="consulting.png    " alt="Consulting">
+                <h3>Get Job</h3>
+                <p>Get highest paying job in your field in Nepal.</p>
+            </div>
+            <div class="service-card">
+                <img src="offerservices.png" alt="Work">
+                <h3>Offer Services</h3>
+                <p>Showcase your skills and earn by working with businesses.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+   
+
+    <!-- Footer -->
+ 
+    <footer style="background-color: black; color: white; padding: 30px 20px; font-family: 
+    'Poppins', sans-serif; margin-top: 20px ;" >
+        <div style="max-width: 1-200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+            
+            <div>
+                <h3 style="color: #00aaff;">For Clients</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: white; text-decoration: none;">How to Hire</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Talent Marketplace</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Project Catalog</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Hire Worldwide</a></li>
+                </ul>
+            </div>
+    
+            <!-- For Talent Section -->
+            <div>
+                <h3 style="color: #00aaff;">For Talent</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Find Work</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Direct Contracts</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Freelance Jobs</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Win Work with Ads</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources Section -->
+            <div>
+                <h3 style="color: #00aaff;">Resources</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: white; text-decoration: none;">Help & Support</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Success Stories</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Blog</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Affiliate Program</a></li>
+                </ul>
+            </div>
+    
+            <!-- Company Section -->
+            <div>
+                <h3 style="color: #00aaff;">Company</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Leadership</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Careers</a></li>
+                    <li><a href="#" style="color: white; text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+            <p>&copy; 2024 NepalWillWork. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

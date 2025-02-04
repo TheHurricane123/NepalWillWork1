@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NepalWillWork</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #007BFF); /* Gradient background */
+      background-size: cover; /* Ensures the background covers the whole screen */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background-position: center; /* Centers the background image */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      width: 390px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      height: 5rem;
+      width: 5rem;
+      margin-right: 10px;
+    }
+
+    .header h1 {
+      color: #007BFF;
+      font-size: 34px;
+      margin: 0;
+    }
+
+    .login-container input {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #636364;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .login-container input:focus {
+      border-color: #636364;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .show-password-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .show-password-container input {
+      margin-left: 10px;
+      width: auto;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .login-container {
+        width: 90%;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- First part: Name and Age input fields -->
+    <div class="header">
+      <img src="logo.png" alt="NepalWillWork Logo">
+      <h1>NepalWillWork</h1>
+    </div>
+    <form id="loginForm">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+      <input type="text" id="ageInput" placeholder="Age" required>
+      <input type="email" id="Email" placeholder="Email Address" required>
+      <button type="submit">Next</button>
+    </form>
+  </div>
+
+  <!-- Second part: Password input fields -->
+  <div class="login-container" id="passwordContainer" style="display: none;">
+    <div class="header">
+      <img src="logo.png" alt="NepalWillWork Logo">
+      <h1>NepalWillWork</h1>
+    </div>
+    <form id="passwordForm">
+      <input type="password" placeholder="Password" id="password" required maxlength="20">
+      <input type="password" placeholder="Re-enter Password" id="repassword" required maxlength="20">
+      
+      <div class="show-password-container">
+        <label for="show-password" id="showpass">Show Password</label>
+        <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+      </div>
+      
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    // Toggle password visibility
+    function togglePasswordVisibility() {
+      var password = document.getElementById("password");
+      var repassword = document.getElementById("repassword");
+      var showPassword = document.getElementById("show-password");
+
+      if (showPassword.checked) {
+        password.type = "text";
+        repassword.type = "text";
+      } else {
+        password.type = "password";
+        repassword.type = "password";
+      }
+    }
+
+    // Handle first form submission (name and age input)
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevents the default form submission
+
+      // Hide name and age form and show password form
+      document.querySelector('.login-container').style.display = 'none';
+      document.getElementById('passwordContainer').style.display = 'block';
+    });
+
+    // Handle second form submission (password input)
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const password = document.getElementById("password").value;
+      const repassword = document.getElementById("repassword").value;
+
+      // Check if passwords match
+      if (password === repassword) {
+        window.location.href = "home.html"; // Redirect to home.html if passwords match
+      } else {
+        alert("Passwords should be the same"); // Show alert if passwords don't match
+      }
+    });
+  </script>
+</body>
+</html>
